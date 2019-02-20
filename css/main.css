@@ -1,0 +1,28 @@
+.header {
+    background-color: rgb(150, 125, 184);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.profile {
+    display: flex;
+}
+.profile h5 {
+    padding-right: 15px;
+    font-weight: 300;
+}
+.header h2{
+    font-weight: 200;
+}
+.bell {
+    width: 15%; 
+    height: 15%;
+    margin: auto;
+    border-right: 1px solid white;
+    padding-right: 10px;
+}
+h2 {
+    margin: 0;
+
+}
