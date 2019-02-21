@@ -1,28 +1,125 @@
+html {
+    /* background-color: rgb(236, 233, 233); */
+}
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.main {
+    height: 100vh;
+    display: grid; 
+    grid-template-columns: repeat(7, minmax(50px, 1fr));
+    grid-template-rows: repeat(2, minmax(40px, 70px)) repeat(5, minmax(50px, 1fr)); 
+}
 .header {
     background-color: rgb(150, 125, 184);
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
+    grid-row: 1/ 1; 
+    grid-column: 1/ 8;
 }
 .profile {
     display: flex;
+    justify-content: flex-end;
 }
 .profile h5 {
     padding-right: 15px;
     font-weight: 300;
 }
-.header h2{
+.header h3{
     font-weight: 200;
+    margin-left: 15px;
+    font-size: 14px;
+    flex-basis: 100px;
 }
 .bell {
-    width: 15%; 
-    height: 15%;
-    margin: auto;
+    width: 8%; 
+    height: 10%;
+    margin: auto 10px;
     border-right: 1px solid white;
     padding-right: 10px;
 }
-h2 {
-    margin: 0;
+.profile-picture {
+    border-radius: 50%;
+    margin: auto 15px;  
+}
+.navigation {
+    background-color: rgb(87, 62, 121);
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    grid-row: 2/ 2; 
+    grid-column: 1/ 8;
+}
+.nav-icon {
+    width: 5%;
+    padding: 5px;
+}
+/* dash tab styles */
+.dash-content {
+    grid-row: 3/ 3; 
+    grid-column: 1 / 8;
+}
+.tab {
+    display: flex;
+    justify-content: space-between;
+}
+.tab h3 {
+    color: gray; 
+    font-weight: 400; 
+    margin: auto;
+    padding: 10px;
+    flex-basis: 100px;
+    text-align: center;
 
+}
+.search-container {
+    background-color: rgb(223, 219, 219);
+    width: 85%;
+    display: flex;
+    justify-content: flex-end;
+}
+.tab input {
+    padding: 5px;
+    font-size: 12px;
+    margin: 15px;
+    /* width: 40%; */
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    flex-basis: 180px;
+   
+}
+
+@media (min-width: 760px) {
+    .header h3{
+      font-size: 20px;
+    }
+    .navigation {
+        flex-direction: column;
+        grid-column-start: 1; 
+        grid-column-end: 1;
+        grid-row: 2/ 8;
+        height: auto;
+        justify-content: flex-start;
+    }
+    .main {
+        grid-template-columns: 50px repeat(6, minmax(100px, 200px));
+    }
+    .nav-icon {
+        width: 50%;
+        align-self: center;
+        margin: 15px 0; 
+    }
+    .dash-content {
+        grid-row: 2/ 2; 
+        grid-column: 2 / 8;
+    }
+    .search-container {
+        background-color: rgb(223, 219, 219);
+        width: 85%;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
