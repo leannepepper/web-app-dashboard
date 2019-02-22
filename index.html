@@ -24,7 +24,7 @@
                 <img class="nav-icon" src="icons/icon-visits.svg" alt=" visits icon">
                 <img class="nav-icon" src="icons/icon-settings.svg" alt=" settings icon">
             </div>
-            <div class="dash-content">
+            <main class="dash-content">
                 <div class="tab">
                     <h3>Dashboard</h3>
                     <div class="search-container">
@@ -38,8 +38,41 @@
                     </p>
                     <button class="alert-close"><i class="fas fa-times"></i></button>
                 </div>
-            </div>
+                <section class="charts-container">
+                    <div class="line-chart">
+                        <h3>Traffic</h3>
+                        <canvas id="line"></canvas>
+                    </div>
+                    <div class="bar-pie-container">
+                        <div class="bar-chart">
+                             <canvas id="bar-chart"></canvas>
+                         </div>
+                         <div class="pie-chart">
+                            <canvas id="pie-chart"></canvas>
+                        </div>
+                    </div>
+                </section>
+                <h4>Social Stats</h4>
+                <div class="social-stats">
+                    <div class="card">
+                        <img class="social-icon" src="icons/icon-twitter.svg">
+                        <h5>Twitter</h5>
+                        <p>10,345</p>
+                    </div>
+                    <div class="card">
+                        <img class="social-icon" src="icons/icon-facebook.svg">
+                        <h5>Facebook</h5>
+                        <p>8,739</p>
+                    </div>
+                    <div class="card">
+                        <img class="social-icon" src="icons/icon-google-plus.svg">
+                        <h5>Google+</h5>
+                        <p>2,530</p>
+                    </div>
+                </div>
+            </main>
          </div>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="index.js"></script>
 </html>
