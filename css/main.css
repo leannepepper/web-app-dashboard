@@ -38,9 +38,11 @@ body{
     grid-row: 4 /4;
     grid-column: 1/8;
 }
+/* heading styles */
 .profile {
     display: flex;
     justify-content: flex-end;
+    justify-content: center;
 }
 .profile h5 {
     padding-right: 15px;
@@ -54,15 +56,59 @@ body{
     flex-basis: 100px;
 }
 .bell {
-    width: 8%; 
-    height: 10%;
+    width: 25%; 
+    height: 40%;
     margin: auto 10px;
-    border-right: 1px solid white;
-    padding-right: 10px;
+    padding: 10px; 
+}
+.personal {
+    display: flex;
+    border-left: 1px solid white;
+    margin: auto;
 }
 .profile-picture {
     border-radius: 50%;
     margin: auto 15px;  
+}
+.dropdown {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+.notification-ul {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: rgb(202, 186, 226);
+    min-width: 180px;
+    z-index: 1;
+    border-radius: 5px;
+}
+.notification-ul li {
+    color: black;
+    margin: 10px;
+    font-size: 12px; 
+    font-family: 'Quicksand', sans-serif; 
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+
+}
+.notification-button {
+    border: none;
+    background-color: #fff;
+    margin-left: 5px;
+    padding: 5px;
+}
+.bell:hover ~ .notification-ul {
+    display: block;
+}
+.notification-ul:hover {
+    display: block;
 }
 .nav-icon {
     width: 5%;
@@ -186,7 +232,7 @@ body{
 .card {
     border: 1px solid lightgray;
     border-radius: 5px;
-    margin: 10px;
+    margin: 10px 10px 30px 10px;
     width: 250px;
     height: 80px;;
     padding: 10px 15px;
@@ -538,4 +584,60 @@ option {
         width: 50%;
     }
   
+}
+/* Aminmation for the Notifications  */
+@keyframes removed-items {
+    from {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+    }
+  }
+  .removed-item {
+    -ms-animation: removed-items 0.4s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    -webkit-animation: removed-items0.4s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    -moz-animation: removed-items 0.4s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    -o-animation: removed-items 0.4s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    animation: removed-items 0.4s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+  }
+
+  @keyframes tick-toc {
+      0% {
+        -ms-transform: rotate(0deg); /* IE 9 */
+        -webkit-transform: rotate(0deg); /* Safari */
+        transform: rotate(0deg);
+      }
+      33% {
+        -ms-transform: rotate(-50deg); /* IE 9 */
+        -webkit-transform: rotate(-50deg); /* Safari */
+        transform: rotate(-50deg);
+      }
+      66% {
+        -ms-transform: rotate(50deg); /* IE 9 */
+        -webkit-transform: rotate(50deg); /* Safari */
+        transform: rotate(50deg);  
+      }
+      100% {
+        -ms-transform: rotate(0deg); /* IE 9 */
+        -webkit-transform: rotate(0deg); /* Safari */
+        transform: rotate(0deg);  
+      }
+  }
+.bell:hover {
+    animation: tick-toc 0.7s ease-in-out; 
+    -o-animation: tick-toc 0.7s ease-in-out; 
+    -moz-animation: tick-toc 0.7s ease-in-out; 
+    -webkit-animation: tick-toc 0.7s ease-in-out; 
+    -ms-animation: tick-toc 0.7s ease-in-out; 
 }

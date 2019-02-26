@@ -184,3 +184,17 @@ sendButton.addEventListener('click', function(){
 })
 
 // *********** Notifications **************
+ 
+// const list1 = document.querySelector("#item-1");
+// const list2 = document.querySelector("#item-2");
+// const list3 = document.querySelector("#item-3");
+const ul = document.querySelector(".notification-ul");
+
+ul.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+        e.target.parentNode.classList.add('removed-item');
+        setTimeout(() => {
+            e.target.parentNode.remove(e);
+        }, 400);
+    }
+});
