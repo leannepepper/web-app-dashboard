@@ -57,7 +57,7 @@ body{
 }
 .bell {
     width: 25%; 
-    height: 40%;
+    height: 30%;
     margin: auto 10px;
     padding: 10px; 
 }
@@ -68,7 +68,9 @@ body{
 }
 .profile-picture {
     border-radius: 50%;
-    margin: auto 15px;  
+    margin: auto 15px;
+    width: 40px;
+    height: 40px; 
 }
 .dropdown {
     position: relative;
@@ -78,8 +80,8 @@ body{
 .notification-ul {
     display: none;
     position: absolute;
-    top: 50px;
-    left: 50px;
+    top: 80px;
+    left: 180px;
     background-color: rgb(202, 186, 226);
     min-width: 180px;
     z-index: 1;
@@ -233,8 +235,8 @@ body{
     border: 1px solid lightgray;
     border-radius: 5px;
     margin: 10px 10px 30px 10px;
-    width: 250px;
-    height: 80px;;
+    width: 280px;
+    height: 90px;;
     padding: 10px 15px;
     background-color: rgb(241, 245, 245);
 }
@@ -262,10 +264,10 @@ body{
 }
 /* social SVG styles  */
 .social-icon {
-    width: 15%;
+    width: 20%;
     display: inline-block;
     background-color: rgb(150, 125, 184);
-    padding: 18px;
+    padding: 12px;
     border-radius: 50%; 
 }
 
@@ -421,9 +423,6 @@ select {
     width: 100%; 
     color: gray; 
     font-family: 'Quicksand', sans-serif;
-}
-option {
-    padding: 10px;
 }
 .select {
     width: 85%;

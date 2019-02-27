@@ -5,22 +5,22 @@ const messagesDiv = document.querySelector(".messages");
 const message = document.querySelector('textarea'); 
 const sendButton = document.querySelector('#message-send');
 
-// functionality to close the alert box 
+
+// ********** ALERT BOX *************
+
 alertButton.addEventListener('click', function(){
     const alertModal= document.querySelector('.alert-modal'); 
     alertModal.style.display = "none";
 })
 
 
-// ***********CHARTS****************************
+// ***********CHARTS******************
 
-// Line Chart
+// **** Line Chart*****
 const lineChart = document.getElementById('line').getContext('2d');
 const line = new Chart(lineChart, {
-    // The type of chart we want to create
     type: 'line',
 
-    // The data for our dataset
     data: {
         labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26"],
         datasets: [{
@@ -57,13 +57,12 @@ const line = new Chart(lineChart, {
         responsive: true,
       }
 });
-// bar chart 
+
+// ***** Bar chart *****
 const bar = document.getElementById('bar-chart').getContext('2d');
 const barChart = new Chart(bar, {
-    // The type of chart we want to create
     type: 'bar',
 
-    // The data for our dataset
     data: {
         labels: ["S", "M", "T", "W", "TH", "F", "S"],
         datasets: [{
@@ -76,13 +75,12 @@ const barChart = new Chart(bar, {
         responsive: true,
       }
 });
-// pie chart 
+
+// ****** Pie chart ******
 const pie = document.getElementById('pie-chart').getContext('2d');
 const pieChart = new Chart(pie, {
-    // The type of chart we want to create
     type: 'doughnut',
 
-    // The data for our dataset
     data: {
         labels: ["phones", "Tablets", "Desktop"],
         datasets: [{
@@ -94,61 +92,8 @@ const pieChart = new Chart(pie, {
     options: {
         responsive: true,
       }
-});
-
-//*************SEARCH BAR FUNCTIONALITY *****************/
-
-
-
-// function searchPeople(inp, arr) {
-//     var currentFocus; 
-
-//     inp.addEventListener("input", function(e){
-//         var a, b, i, val = this.value; 
-
-//         closeAllList();
-//         if(!val) {
-//             return false;
-//         }
-//         currentFocus = -1; 
-//         a = document.createElement("DIV"); 
-//         a.setAttribute("id", "autocomplete-items");
-//         this.parentNode.appendChild(a); 
-
-//         for(i = 0; i < arr.length; i++){
-//             if(arr[i].substr(0, val.length).toUpperCase == val.toUpperCase()){
-//                 b = document.createElement("DIV");
-//                 b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-//                 b.innerHTML += arr[i].substr(val.length);
-//                 b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-
-//                 b.addEventListener("click", function(e){
-//                     inp.value = this.getElementsByTagName("input")[0].value;
-//                     closeAllLists();
-//                 });
-//                 a.appendChild(b); 
-//             }
-//         }
-//     });
-//     inp.addEventListener("keydown", function(e) {
-//         var x = document.getElementById(this.id + "autocomplete-list");
-//         if (x) x = x.getElementsByTagName("div");
-//         if (e.keyCode == 40) {
-//             currentFocus++;
-//             addActive(x);
-//       } else if (e.keyCode == 38) {
-//         currentFocus--;
-//         addActive(x);
-//       } else if (e.keyCode == 13) {
-//         e.preventDefault();
-//         if (currentFocus > -1) {
-//             if (x) x[currentFocus].click();
-//         }
-//       }
-//   });
-// }
- 
-// ************ Message sent functions and resets ******************
+}); 
+// ************ MESSAGE SENT FUNCTIONS ******************
 
 function createSuccessMessage() {
     const successMessage = document.createElement('DIV'); 
@@ -183,11 +128,8 @@ sendButton.addEventListener('click', function(){
     }
 })
 
-// *********** Notifications **************
+// *********** REMOVE NOTIFICATIONS **************
  
-// const list1 = document.querySelector("#item-1");
-// const list2 = document.querySelector("#item-2");
-// const list3 = document.querySelector("#item-3");
 const ul = document.querySelector(".notification-ul");
 
 ul.addEventListener('click', (e) => {
@@ -198,3 +140,63 @@ ul.addEventListener('click', (e) => {
         }, 400);
     }
 });
+// ******** LOCAL STORAGE TO SAVE SETTINGS **********
+const saveSettings = document.querySelector('.save'); 
+const clearSettings = document.querySelector('.cancel');
+
+const form = document.querySelector('form'); 
+
+
+
+// save the settings to local storage
+function save() {
+    const emailCheckbox = document.querySelector('.checkbox-1'); 
+    const profileCheckbox = document.querySelector('.checkbox-2'); 
+    const option2 = document.querySelector('.options-2');
+    const option3 = document.querySelector('.options-3');
+    const option4 = document.querySelector('.options-4');
+    const option5 = document.querySelector('.options-5');
+
+    localStorage.setItem('emailCheckbox', emailCheckbox.checked); 
+    localStorage.setItem('profileCheckbox', profileCheckbox.checked); 
+    localStorage.setItem('option2', option2.selected); 
+    localStorage.setItem('option3', option3.selected); 
+    localStorage.setItem('option4', option4.selected); 
+    localStorage.setItem('option5', option5.selected); 
+
+    alert("Your settings are saved");
+
+}
+//set the local storage settings when page loads 
+function getSettings(){
+    const emailChecked = JSON.parse(localStorage.getItem('emailCheckbox'));
+    document.querySelector('.checkbox-1').checked = emailChecked; 
+
+    const profileChecked = JSON.parse(localStorage.getItem('profileCheckbox'));
+    document.querySelector('.checkbox-2').checked = profileChecked; 
+
+    const options2 = JSON.parse(localStorage.getItem('option2'));
+    document.querySelector('.options-2').selected = options2;
+
+    const options3 = JSON.parse(localStorage.getItem('option3'));
+    document.querySelector('.options-3').selected = options3;
+
+    const options4 = JSON.parse(localStorage.getItem('option4'));
+    document.querySelector('.options-4').selected = options4;
+
+    const options5 = JSON.parse(localStorage.getItem('option5'));
+    document.querySelector('.options-5').selected = options5;
+
+}
+saveSettings.addEventListener("click", function(){
+    save();
+})
+clearSettings.addEventListener("click", function(){
+    localStorage.clear();
+    document.querySelector('.select-menu').value = "";
+})
+getSettings();
+
+
+
+
